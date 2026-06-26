@@ -1,812 +1,701 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saraswati Dining — Fine Dining Experience</title>
-  <meta name="description" content="Saraswati Dining — Pengalaman fine dining autentik dengan cita rasa fusion modern dan bahan-bahan pilihan terbaik." />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Nama Restoran] — Restoran Premium</title>
+  <meta name="description" content="Pengalaman bersantap premium dengan cita rasa terbaik. Reservasi meja sekarang.">
+  
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════════════ -->
-  <header class="site-header" id="site-header">
-    <nav class="nav-container">
-      <a href="#hero" class="nav-logo">
-        <span class="logo-mark">✦</span>
-        <span class="logo-text">Saraswati <em>Dining</em></span>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="#" class="logo">
+        <span class="logo__icon"><i class="fas fa-utensils"></i></span>
+        <span class="logo__text">[Nama Restoran]</span>
       </a>
-
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#about" class="nav-link">Tentang</a></li>
-        <li><a href="#menu" class="nav-link">Menu</a></li>
-        <li><a href="#gallery" class="nav-link">Galeri</a></li>
-        <li><a href="#reservation" class="nav-link">Reservasi</a></li>
-        <li><a href="#contact" class="nav-link">Kontak</a></li>
-      </ul>
-
-      <a href="#reservation" class="btn-nav-cta">Reservasi Meja</a>
-
-      <button class="nav-hamburger" id="nav-hamburger" aria-label="Buka menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
+      
+      <nav class="nav" id="nav">
+        <button class="nav__toggle" id="nav-toggle" aria-label="Buka menu navigasi">
+          <span class="nav__bar"></span>
+          <span class="nav__bar"></span>
+          <span class="nav__bar"></span>
+        </button>
+        <ul class="nav__menu" id="nav-menu">
+          <li><a href="#menu-unggulan" class="nav__link">Menu</a></li>
+          <li><a href="#menu-lengkap" class="nav__link">Menu Lengkap</a></li>
+          <li><a href="#galeri" class="nav__link">Galeri</a></li>
+          <li><a href="#reservasi" class="nav__link">Reservasi</a></li>
+          <li><a href="#lokasi" class="nav__link">Lokasi</a></li>
+          <li><a href="#kontak" class="nav__link">Kontak</a></li>
+          <li class="nav__reserve-mobile">
+            <a href="#reservasi" class="btn btn--small">Reservasi</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <a href="#reservasi" class="btn btn--small header__reserve">Reservasi</a>
+    </div>
   </header>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Tutup menu">
-      <i class="fas fa-times"></i>
-    </button>
-    <ul class="mobile-nav-links">
-      <li><a href="#about">Tentang</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#gallery">Galeri</a></li>
-      <li><a href="#reservation">Reservasi</a></li>
-      <li><a href="#contact">Kontak</a></li>
-    </ul>
-    <a href="#reservation" class="btn-primary mobile-cta">Reservasi Meja</a>
-  </div>
-
   <main>
-
-    <!-- ═══════════════════════════════════════════
-         A. HERO
-    ═══════════════════════════════════════════ -->
-    <section id="hero" class="hero-section">
-      <div class="hero-bg">
-        <img
-          src="https://sspark.genspark.ai/cfimages?u1=BBORWMfTsROMN43efow4u5pjb5CjG9pAf%2Bc7HygearVAkVrsLibuOL9JMuU0k1YBL70vDT6UfsSjO4kSkNQjKRjQe8px%2BlVr%2B7tiUML1yk41G3ijgoSeDHhjS4t877V76Xg54JJTP2lyJe2mhhuccoUorxmv0fxcInBS&u2=PUSuMeVvJK4U96G2&width=2560"
-          alt="Suasana Saraswati Dining — Ruang makan elegan"
-          class="hero-img"
-        />
-        <div class="hero-overlay"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=80" alt="Suasana fine dining restoran">
+        <div class="hero__overlay"></div>
       </div>
-
-      <div class="hero-content">
-        <p class="hero-eyebrow">Fine Dining · Jakarta Selatan</p>
-        <h1 class="hero-title">Rasa yang<br /><em>Tak Terlupakan</em></h1>
-        <p class="hero-tagline">
-          Perpaduan cita rasa fusion modern dan warisan kuliner nusantara,<br class="desktop-only" />
-          disajikan dalam atmosfer yang tenang dan elegan.
-        </p>
-        <div class="hero-actions">
-          <a href="#reservation" class="btn-primary">Reservasi Meja</a>
-          <a href="#menu" class="btn-outline">Lihat Menu</a>
-        </div>
-      </div>
-
-      <div class="hero-scroll-hint">
-        <span>Gulir ke bawah</span>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-
-      <!-- Floating Info Bar -->
-      <div class="hero-info-bar">
-        <div class="info-item">
-          <i class="fas fa-clock"></i>
-          <span>Sen–Jum 11.00–22.00<br />Sab–Min 10.00–23.00</span>
-        </div>
-        <div class="info-divider"></div>
-        <div class="info-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Jl. Kemang Raya No. 45,<br />Jakarta Selatan</span>
-        </div>
-        <div class="info-divider"></div>
-        <div class="info-item">
-          <i class="fab fa-whatsapp"></i>
-          <span>+62 812-3456-7890</span>
+      <div class="container hero__content">
+        <span class="hero__label reveal">RESTORAN PREMIUM</span>
+        <h1 class="hero__title reveal">Cita Rasa Istimewa,<br>Sentuhan Emas.</h1>
+        <p class="hero__tagline reveal">Pengalaman bersantap elegan yang menggabungkan resep autentik, bahan pilihan, dan pelayanan tanpa tanding.</p>
+        <div class="hero__actions reveal">
+          <a href="#reservasi" class="btn btn--primary">Reservasi Sekarang</a>
+          <a href="#menu-unggulan" class="btn btn--outline">Lihat Menu</a>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         B. TENTANG
-    ═══════════════════════════════════════════ -->
-    <section id="about" class="about-section section-padding">
+    <!-- Menu Unggulan -->
+    <section class="section section--featured" id="menu-unggulan">
       <div class="container">
-        <div class="about-grid">
-          <div class="about-images">
-            <div class="about-img-main">
-              <img
-                src="https://sspark.genspark.ai/cfimages?u1=kdxPexFC%2FZS%2BDM3Yz9g9lnK63I%2BJteXDb8wqISh82djnCYKHAsc%2F%2BixzHoQk5uYy62zRLNlKQgI4SMiA0IDhqF44Z%2B%2Fje8sYk914%2Fw4C3lXz1%2F1zi8q2ifnjzYoP5EuyEv8%3D&u2=ipiV%2F7XSHyjcACzW&width=2560"
-                alt="Hidangan signature Saraswati Dining"
-                loading="lazy"
-              />
+        <div class="section__header reveal">
+          <span class="section__label">PILIHAN ANDALAN</span>
+          <h2 class="section__title">Menu Unggulan</h2>
+          <p class="section__subtitle">Hidangan signature yang paling banyak dinikmati para tamu kami.</p>
+        </div>
+        
+        <div class="featured-grid">
+          <!-- Item 1 -->
+          <article class="menu-card reveal">
+            <div class="menu-card__badge">
+              <span class="badge badge--best">Best Seller</span>
             </div>
-            <div class="about-img-secondary">
-              <img
-                src="https://sspark.genspark.ai/cfimages?u1=g9NosFnaalYrwc7iWGWIC3yzTt6ZwrGOw8ttak%2BrG7aGq4jh3VbbrR7gDnIZxbRtN9jWQuOBeJOl54X68tCFa%2Bd1E0Uk0gkmLkdFMHxkiYTZXV36OoQ2ZIU2KOyMXhLVKV%2F59aCeytE5z%2FGdgMM1MP7HiuRUnYpA6cPMEEk%3D&u2=KYI%2FScP%2B5DbPqFXw&width=2560"
-                alt="Meja makan elegan Saraswati Dining"
-                loading="lazy"
-              />
-              <div class="about-badge">
-                <span class="badge-year">Est.</span>
-                <span class="badge-num">2018</span>
+            <figure class="menu-card__image">
+              <img src="https://images.unsplash.com/photo-1603133872878-684f208fb74b?auto=format&fit=crop&w=600&q=80" alt="Nasi Goreng Special dengan telur dan ayam">
+            </figure>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <h3 class="menu-card__name">Nasi Goreng Special</h3>
+                <span class="menu-card__price">Rp45.000</span>
               </div>
+              <p class="menu-card__desc">Nasi goreng wangi dengan telur mata sapi, ayam suwir, dan acar segar.</p>
+            </div>
+          </article>
+          
+          <!-- Item 2 -->
+          <article class="menu-card reveal">
+            <div class="menu-card__badge">
+              <span class="badge badge--best">Best Seller</span>
+            </div>
+            <figure class="menu-card__image">
+              <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=600&q=80" alt="Ayam Bakar Madu dengan sambal">
+            </figure>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <h3 class="menu-card__name">Ayam Bakar Madu</h3>
+                <span class="menu-card__price">Rp52.000</span>
+              </div>
+              <p class="menu-card__desc">Ayam kampung bakar dengan olesan madu dan rempah, disajikan dengan sambal istimewa.</p>
+            </div>
+          </article>
+          
+          <!-- Item 3 -->
+          <article class="menu-card reveal">
+            <div class="menu-card__badge">
+              <span class="badge badge--best">Best Seller</span>
+            </div>
+            <figure class="menu-card__image">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Steak Premium dengan sayuran">
+            </figure>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <h3 class="menu-card__name">Steak Premium</h3>
+                <span class="menu-card__price">Rp185.000</span>
+              </div>
+              <p class="menu-card__desc">Sirloin pilihan dengan saus lada hitam, mashed potato, dan sayuran musiman.</p>
+            </div>
+          </article>
+          
+          <!-- Item 4 -->
+          <article class="menu-card reveal">
+            <div class="menu-card__badge">
+              <span class="badge badge--best">Best Seller</span>
+            </div>
+            <figure class="menu-card__image">
+              <img src="https://images.unsplash.com/photo-1547592166-23acbe3a624b?auto=format&fit=crop&w=600&q=80" alt="Sop Buntut hangat">
+            </figure>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <h3 class="menu-card__name">Sop Buntut</h3>
+                <span class="menu-card__price">Rp78.000</span>
+              </div>
+              <p class="menu-card__desc">Buntut sapi berempah yang dimasak lama, kuah bening kaya rasa.</p>
+            </div>
+          </article>
+          
+          <!-- Item 5 -->
+          <article class="menu-card reveal">
+            <div class="menu-card__badge">
+              <span class="badge badge--best">Best Seller</span>
+            </div>
+            <figure class="menu-card__image">
+              <img src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?auto=format&fit=crop&w=600&q=80" alt="Seafood Platter dengan udang dan ikan">
+            </figure>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <h3 class="menu-card__name">Seafood Platter</h3>
+                <span class="menu-card__price">Rp245.000</span>
+              </div>
+              <p class="menu-card__desc">Kombinasi udang, cumi, dan ikan segar dengan saus pilihan untuk berbagi.</p>
+            </div>
+          </article>
+          
+          <!-- Item 6 -->
+          <article class="menu-card reveal">
+            <div class="menu-card__badge">
+              <span class="badge badge--best">Best Seller</span>
+            </div>
+            <figure class="menu-card__image">
+              <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80" alt="Es Teh Premium dengan lemon">
+            </figure>
+            <div class="menu-card__content">
+              <div class="menu-card__meta">
+                <h3 class="menu-card__name">Es Teh Premium</h3>
+                <span class="menu-card__price">Rp18.000</span>
+              </div>
+              <p class="menu-card__desc">Teh pilihan dengan aroma bunga dan seduhan lemon segar.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Lengkap -->
+    <section class="section" id="menu-lengkap">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">MENU KAMI</span>
+          <h2 class="section__title">Menu Lengkap</h2>
+          <p class="section__subtitle">Jelajahi seluruh pilihan hidangan yang disiapkan oleh tim kami.</p>
+        </div>
+        
+        <div class="menu-tabs reveal">
+          <button class="menu-tab active" data-tab="makanan-utama">Makanan Utama</button>
+          <button class="menu-tab" data-tab="seafood">Seafood</button>
+          <button class="menu-tab" data-tab="steak">Steak</button>
+          <button class="menu-tab" data-tab="minuman">Minuman</button>
+          <button class="menu-tab" data-tab="dessert">Dessert</button>
+        </div>
+        
+        <div class="menu-panels">
+          <!-- Makanan Utama -->
+          <div class="menu-panel active" id="makanan-utama">
+            <div class="menu-panel__grid">
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1603133872878-684f208fb74b?auto=format&fit=crop&w=300&q=80" alt="Nasi Goreng Special">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Nasi Goreng Special</h3>
+                    <span class="menu-card__price">Rp45.000</span>
+                  </div>
+                  <p class="menu-card__desc">Nasi goreng wangi dengan telur mata sapi dan ayam suwir.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=300&q=80" alt="Ayam Bakar Madu">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Ayam Bakar Madu</h3>
+                    <span class="menu-card__price">Rp52.000</span>
+                  </div>
+                  <p class="menu-card__desc">Ayam bakar dengan madu dan sambal istimewa.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1547592166-23acbe3a624b?auto=format&fit=crop&w=300&q=80" alt="Sop Buntut">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Sop Buntut</h3>
+                    <span class="menu-card__price">Rp78.000</span>
+                  </div>
+                  <p class="menu-card__desc">Buntut sapi berempah dengan kuah bening kaya rasa.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=300&q=80" alt="Mie Goreng Seafood">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Mie Goreng Seafood</h3>
+                    <span class="menu-card__price">Rp55.000</span>
+                  </div>
+                  <p class="menu-card__desc">Mie goreng dengan udang, cumi, dan sayuran segar.</p>
+                </div>
+              </article>
             </div>
           </div>
-
-          <div class="about-content">
-            <p class="section-label">Tentang Kami</p>
-            <h2 class="section-title">Filosofi Dapur<br /><em>yang Jujur</em></h2>
-            <p class="about-text">
-              Saraswati Dining lahir dari keyakinan sederhana: makanan terbaik adalah yang dibuat
-              dengan bahan segar pilihan dan teknik yang tepat, tanpa perlu bersembunyi di balik
-              saus berlebihan atau dekorasi piring yang berlebihan.
-            </p>
-            <p class="about-text">
-              Chef Arinda Kusuma — yang mengasah kemampuannya di Lyon dan Kyoto — membawa
-              pendekatan fusion yang menggabungkan presisi Eropa dengan kedalaman rasa Asia.
-              Setiap hidangan di Saraswati adalah percakapan antara dua dunia.
-            </p>
-            <div class="about-highlights">
-              <div class="highlight-item">
-                <span class="highlight-num">8+</span>
-                <span class="highlight-label">Tahun Beroperasi</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-num">40</span>
-                <span class="highlight-label">Kursi Tersedia</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-num">1</span>
-                <span class="highlight-label">Private Dining Room</span>
-              </div>
+          
+          <!-- Seafood -->
+          <div class="menu-panel" id="seafood">
+            <div class="menu-panel__grid">
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?auto=format&fit=crop&w=300&q=80" alt="Seafood Platter">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Seafood Platter</h3>
+                    <span class="menu-card__price">Rp245.000</span>
+                  </div>
+                  <p class="menu-card__desc">Kombinasi udang, cumi, dan ikan segar untuk berbagi.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1535551951406-a19828b5a76b?auto=format&fit=crop&w=300&q=80" alt="Kepiting Saus Padang">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Kepiting Saus Padang</h3>
+                    <span class="menu-card__price">Rp185.000</span>
+                  </div>
+                  <p class="menu-card__desc">Kepiting segar dengan saus Padang gurih pedas.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87ff8bc?auto=format&fit=crop&w=300&q=80" alt="Ikan Bakar Jimbaran">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Ikan Bakar Jimbaran</h3>
+                    <span class="menu-card__price">Rp95.000</span>
+                  </div>
+                  <p class="menu-card__desc">Ikan bakar dengan bumbu khas Jimbaran dan sambal matah.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1559742811-822873691df8?auto=format&fit=crop&w=300&q=80" alt="Udang Goreng Mentega">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Udang Goreng Mentega</h3>
+                    <span class="menu-card__price">Rp85.000</span>
+                  </div>
+                  <p class="menu-card__desc">Udang goreng mentega dengan bawang putih crispy.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          
+          <!-- Steak -->
+          <div class="menu-panel" id="steak">
+            <div class="menu-panel__grid">
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=300&q=80" alt="Steak Premium">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Steak Premium</h3>
+                    <span class="menu-card__price">Rp185.000</span>
+                  </div>
+                  <p class="menu-card__desc">Sirloin pilihan dengan saus lada hitam dan mashed potato.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=300&q=80" alt="Tenderloin Grill">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Tenderloin Grill</h3>
+                    <span class="menu-card__price">Rp225.000</span>
+                  </div>
+                  <p class="menu-card__desc">Tenderloin empuk dengan grill marks sempurna.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=300&q=80" alt="Ribeye Special">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Ribeye Special</h3>
+                    <span class="menu-card__price">Rp265.000</span>
+                  </div>
+                  <p class="menu-card__desc">Ribeye juicy dengan marbling istimewa dan sayuran musiman.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          
+          <!-- Minuman -->
+          <div class="menu-panel" id="minuman">
+            <div class="menu-panel__grid">
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=300&q=80" alt="Es Teh Premium">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Es Teh Premium</h3>
+                    <span class="menu-card__price">Rp18.000</span>
+                  </div>
+                  <p class="menu-card__desc">Teh pilihan dengan aroma bunga dan lemon segar.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=300&q=80" alt="Kopi House Blend">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Kopi House Blend</h3>
+                    <span class="menu-card__price">Rp25.000</span>
+                  </div>
+                  <p class="menu-card__desc">Kopi lokal pilihan dengan cita rasa bold dan balance.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=300&q=80" alt="Fresh Juice Mix">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Fresh Juice Mix</h3>
+                    <span class="menu-card__price">Rp30.000</span>
+                  </div>
+                  <p class="menu-card__desc">Perpaduan jus buah segar pilihan hari ini.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=300&q=80" alt="Mocktail Signature">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Mocktail Signature</h3>
+                    <span class="menu-card__price">Rp35.000</span>
+                  </div>
+                  <p class="menu-card__desc">Kreasi mocktail spesial dengan garnish segar.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          
+          <!-- Dessert -->
+          <div class="menu-panel" id="dessert">
+            <div class="menu-panel__grid">
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=300&q=80" alt="Chocolate Lava Cake">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Chocolate Lava Cake</h3>
+                    <span class="menu-card__price">Rp45.000</span>
+                  </div>
+                  <p class="menu-card__desc">Kue cokelat dengan lelehan cokelat di tengah dan es krim vanila.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=300&q=80" alt="Panna Cotta">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Panna Cotta</h3>
+                    <span class="menu-card__price">Rp38.000</span>
+                  </div>
+                  <p class="menu-card__desc">Pudding susu lembut dengan saus berry segar.</p>
+                </div>
+              </article>
+              <article class="menu-card menu-card--horizontal">
+                <figure class="menu-card__image">
+                  <img src="https://images.unsplash.com/photo-1563729768-6af784d6df1a?auto=format&fit=crop&w=300&q=80" alt="Cheesecake Lembut">
+                </figure>
+                <div class="menu-card__content">
+                  <div class="menu-card__meta">
+                    <h3 class="menu-card__name">Cheesecake Lembut</h3>
+                    <span class="menu-card__price">Rp42.000</span>
+                  </div>
+                  <p class="menu-card__desc">Cheesecake dengan tekstur lembut dan topping buah segar.</p>
+                </div>
+              </article>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         C. MENU
-    ═══════════════════════════════════════════ -->
-    <section id="menu" class="menu-section section-padding">
+    <!-- Galeri -->
+    <section class="section section--gallery" id="galeri">
       <div class="container">
-        <div class="section-header centered">
-          <p class="section-label">Sajian Kami</p>
-          <h2 class="section-title">Menu <em>Pilihan</em></h2>
-          <p class="section-desc">
-            Dikelompokkan per kursus, setiap sajian dibuat dari bahan pilihan yang bersumber
-            langsung dari petani dan pemasok lokal terpercaya.
-          </p>
+        <div class="section__header reveal">
+          <span class="section__label">SUASANA KAMI</span>
+          <h2 class="section__title">Galeri</h2>
+          <p class="section__subtitle">Momen dan karya kuliner yang menggambarkan pengalaman bersantap di restoran kami.</p>
         </div>
-
-        <!-- Menu Tabs -->
-        <div class="menu-tabs" role="tablist" aria-label="Kategori menu">
-          <button class="menu-tab active" data-tab="appetizer" role="tab" aria-selected="true">
-            <i class="fas fa-leaf"></i> Appetizer
-          </button>
-          <button class="menu-tab" data-tab="maincourse" role="tab" aria-selected="false">
-            <i class="fas fa-utensils"></i> Main Course
-          </button>
-          <button class="menu-tab" data-tab="dessert" role="tab" aria-selected="false">
-            <i class="fas fa-ice-cream"></i> Dessert
-          </button>
-          <button class="menu-tab" data-tab="beverage" role="tab" aria-selected="false">
-            <i class="fas fa-wine-glass"></i> Beverage
-          </button>
-        </div>
-
-        <!-- Appetizer -->
-        <div class="menu-panel active" id="panel-appetizer" role="tabpanel">
-          <div class="menu-grid">
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=%2FvzHZ4d3%2Fl7zG7mo5Ddd146%2BbKWkQ%2FwHLTD8j97aMCnEjpNiCvAi38ReFtXidKwWi6CIOrpuC2QXkIoglAD3NQ4L4j%2FkWGM%2Ft8CbubVgkAmd4Y7jTMuMRb%2BzFmWLVuxX3WZf0tI1DKhpYl97voVVOLsU4tVUjXTJFiT0VRALt3%2FPUsZWm6zK9QcRzh4jtsM%3D&u2=YcKLV6SJSUYq50Ww&width=2560" alt="Salmon Tataki" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Salmon Tataki</h3>
-                  <span class="menu-item-price">Rp 125.000</span>
-                </div>
-                <p class="menu-item-desc">Salmon segar semi-mentah, saus ponzu, daikon parut, dan microgreens lokal.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=Og%2FpjM%2FXSSeiwo3HM5gy0Uuaea%2FsQqRfg6oagEJkY1q7Ep%2BQ6H3D8VupgbzBymXSmYQRk1wUHsRPfgR5nb98WQKgdf6wDpplYWbHhaW4k7%2F6sPWmG%2FLYsHJBjJMDOqFxGcwpqLfdc84B0SbjRsZV1H1UDiYk4%2B9XQKSnsIyNZ2MYsqYQaFncmtIVggk%3D&u2=HpRPBgzHOgIC6ArI&width=2560" alt="Bisque Lobster" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Bisque Lobster</h3>
-                  <span class="menu-item-price">Rp 145.000</span>
-                </div>
-                <p class="menu-item-desc">Sup krim lobster dengan sentuhan cognac, disajikan bersama roti artisan hangat.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=1rTAnjqAtfrILqbE59KBeaeaekTpIh0CxT7pLTWyDNtl31pJTRop0rEjC9q44%2BGsmOOi%2Fv1dEYP%2FOJtKAvBrp5ZEXdRL5jP%2F7%2BNPVv8Y%2F9k%3D&u2=V8IJSMerMbbh4wdV&width=2560" alt="Salad Nusantara" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Salad Nusantara</h3>
-                  <span class="menu-item-price">Rp 95.000</span>
-                </div>
-                <p class="menu-item-desc">Sayuran segar lokal, kacang kenari panggang, dressing tamarind-madu, kerupuk emping.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=%2FdXFP87421PsqiU29TcvuJhVEa1HaWZSxQstv%2B63fOfYehdf7CGQmT9TcAUwsvZk1%2BHOoYsDfZa19c%2FeWPP2moXZwW2PY%2FMFTg4vWOid33iK1rr9xzSsFj6mCZ0AKoc869ZkvoewIECG4Mc0%2FJybyzSg15Wy69sipxc6j0X1CqX246dQwM1w6T6flMg8wGIzHoV5xQZ%2BC0n16w%3D%3D&u2=ANLDZ9IBezPqaqNB&width=2560" alt="Foie Gras Toast" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Foie Gras Toast</h3>
-                  <span class="menu-item-price">Rp 185.000</span>
-                </div>
-                <p class="menu-item-desc">Foie gras sautéed, brioche panggang, selai buah fig, dan crumble pistachio.</p>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-        <!-- Main Course -->
-        <div class="menu-panel" id="panel-maincourse" role="tabpanel">
-          <div class="menu-grid">
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=c2y%2BV3yYTcOa5PLtl02q1LBEBjR51XdtX2qg%2B%2FkR7M5ofmcJF44Td9EEXDvh1XLGE%2Fw1Kl6M91dAg9%2BohcjK1zsmY1QQhIsJl2nIs8vrkecImabcWbaq3%2BbmL%2BPqLTNLZZtzKNMYOGfQH9ZirGrEVB2Dks5d&u2=k4tk3oBS804euN%2Bg&width=2560" alt="Wagyu Tenderloin" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Wagyu Tenderloin</h3>
-                  <span class="menu-item-price">Rp 485.000</span>
-                </div>
-                <p class="menu-item-desc">Wagyu MB4+ panggang medium-rare, saus bordelaise, purée kentang truffle, asparagus roasted.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=MNZCR%2BmIYjfhd5Hoz8CLALTEIx2S70f1kR%2BR2J4NXPRG9Kro8uw6bKcCyCtfsYw1pdzon5dpV0PDOeoc6cJS1UBT0JWqZB48ofVY1aILH91bDamdOXBTGkM5Fp5QwOg8eXL37GWPt8dP%2FTuVXGly%2BQ%3D%3D&u2=2CGjl8%2FJS818Bo48&width=2560" alt="Duck Confit" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Duck Confit</h3>
-                  <span class="menu-item-price">Rp 325.000</span>
-                </div>
-                <p class="menu-item-desc">Bebek confit slow-cooked 12 jam, saus ceri-anggur, lentil puy, dan daun dandelion sautéed.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=koRNJI2CiiesfDx3L0khBu%2FW4pQ8pBAoLTp2yUEhpc8HVrO96NLyDHi%2B6D4fBVT9YO1P8qzMQqgd4aQQwiXyv0qUR2VyRKZHGPTE6jCzE29yTA%3D%3D&u2=%2BWNiO4Ke7VW5%2F20t&width=2560" alt="Pan-Seared Sea Bass" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Pan-Seared Sea Bass</h3>
-                  <span class="menu-item-price">Rp 285.000</span>
-                </div>
-                <p class="menu-item-desc">Ikan kakap panggang crispy, emulsion beurre blanc pandan, risotto sayuran musiman.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=xRkArFIgnXvG8d2Msjp%2Bmu7ul7D%2Fu4Mt7QVTJxfyCQ8M4v1oZlOgHad8CIlX%2F4L0hyHgAmUkdWZOBhF6u6l1b%2Fvq9dxIcNh97ykI63p7CqLZMMq5a67Ar3uHwH88dkSzV%2FWMIBltLL8SCPuExmF7Ujm6uFUoqxTrRHWCmLe2GwUhvt7hccV5EVDWvEXMDZI1bTFxRN6LTsTDKB9M1sVHNQgT6Wrb4atYGpQGRRfaTMORdRaMITy5L6uZ6ZEYqGLzRn7Z3YiRXRxp1fTllug6Vlx7e73C13Sn7GslPRIXTT4chNX9CkJwyBgTXmNTu9sECu1UpnOkFJakhXGLqpqJUuQodhFhtK8d8ToRlnXhOMc%3D&u2=FE24Y8YjNtHBctAP&width=2560" alt="Lamb Rack" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Lamb Rack Provençal</h3>
-                  <span class="menu-item-price">Rp 395.000</span>
-                </div>
-                <p class="menu-item-desc">Iga domba herb-crusted, ratatouille Provençal, saus mint-rosemary, couscous saffron.</p>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-        <!-- Dessert -->
-        <div class="menu-panel" id="panel-dessert" role="tabpanel">
-          <div class="menu-grid">
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=dItSa7ugsFKzJwgvsc51KkynKyYtosraSraePSLls8YLaj22hCZXEBqtAb8%2FROwdZefHr%2Bm2ZE8u%2Fsr6AG%2Bs20BEFgb0bN4zCStn2R%2BckXUiEwirAkklP8fdoegThbc9WKU%3D&u2=kAzrmIc5M9RR%2FlcU&width=2560" alt="Crème Brûlée Pandan" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Crème Brûlée Pandan</h3>
-                  <span class="menu-item-price">Rp 85.000</span>
-                </div>
-                <p class="menu-item-desc">Custard pandan lembut dengan lapisan karamel renyah, disajikan bersama buah musiman segar.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=LBKIFzZ0hFfh4On7GfkNVz0e3CwKmhL10Fe9yYy3G%2Blp31%2Fa8wE5E74I79LgaBGHqmeuC%2BI9LHhAroI5nZgyKMH08I3mQcZGB%2F3hUZeMlCbKpFhcapKwVSS%2BNlDYK7Yejemo3BnyhLkI23QyHP%2FicQ%3D%3D&u2=ZmqCTJ6r6I7PeJiE&width=2560" alt="Dark Chocolate Fondant" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Dark Chocolate Fondant</h3>
-                  <span class="menu-item-price">Rp 95.000</span>
-                </div>
-                <p class="menu-item-desc">Molten chocolate 70% cacao, es krim vanilla bean, praline hazelnut, gold dust.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=WHD8fUd9dyl%2BO53Ruesj2Zyyx80XovxZIfadCMNhT4USKlFabcRlqGb7hBlbNU7dJ7Xp4Lnm7cJgo23LoYtMSI6nerZQtKW6qPaI1o9UCbGR44xKQAP4CoifxjKVsjtn%2BULg7d1tXkGRMS4J%2B4lNJoiJ&u2=q5efduC2yd6QxyZY&width=2560" alt="Mille-Feuille Strawberry" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Mille-Feuille Strawberry</h3>
-                  <span class="menu-item-price">Rp 88.000</span>
-                </div>
-                <p class="menu-item-desc">Pastry puff berlapis krim pastry vanila, stroberi lokal, glasur gula rosé.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=BKBo6zqbm9nhzvnzw%2FRIkHjlALvFXgDwCANY8GsLjVzFj0S9AZ8inXAevKI%2B%2FIjclp7XO7O03UqwPDH1bGh9SZ6Qj4fk1AULVlmZVPeCRbUBkHiwNVHdu3mYyy5XW0VOl7dgxgt55%2FlLNDjX7A%3D%3D&u2=%2FA4tathFUYT4dWjH&width=2560" alt="Yuzu Sorbet" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Yuzu Sorbet Trio</h3>
-                  <span class="menu-item-price">Rp 75.000</span>
-                </div>
-                <p class="menu-item-desc">Tiga bola sorbet yuzu, lychee, dan mango harum, hiasan mint segar dan edible flower.</p>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-        <!-- Beverage -->
-        <div class="menu-panel" id="panel-beverage" role="tabpanel">
-          <div class="menu-grid">
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=dpm%2FCJIAtf0LGMrZ6W2Wm5NAEly8lyqELTeO5QNKY3W%2FYt14RMEboAt5%2FGfuUocbKdrpeSK1r11380K8PGUMEgUX22011k0R0FZZC5vtDazg1Rqf4mhkL2QLZf5b3iBZ&u2=iQtXB%2FN3Uuj%2BLnUd&width=2560" alt="Garden Mocktail" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Garden Mocktail</h3>
-                  <span class="menu-item-price">Rp 65.000</span>
-                </div>
-                <p class="menu-item-desc">Mentimun, basil segar, lemon, sparkling water dengan sentuhan elderflower syrup.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=9usT2T%2Bvf7n%2FUYMhc8YM8LFSFkKI1hxilW6NCpW%2BweWwcbRFmSL1%2BimL4zokr%2Bf%2Fnmx95fTy2BIOcO7e23qXcaSmcwqfsfIHgDsUr23530YezA6iEYmEwkNM4m0ArX41Sx231W8nvA2UVD3a&u2=b6UmAWctlSCXFNYJ&width=2560" alt="Rosella Fizz" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Rosella Fizz</h3>
-                  <span class="menu-item-price">Rp 70.000</span>
-                </div>
-                <p class="menu-item-desc">Sirup rosella buatan sendiri, jeruk nipis, ginger beer, garnish bunga rosella segar.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=g0KXpbUgfGHEzIQQAMumcauRFZ3cf5tNp6U7EGYvYxRNfaMpAl7G5twgG3V50stTnNPtKjxM5qjpXlLZRLdr3CNOUjV72Igknru0V765rxozg3I9cU9JvLsxcF3ai7O1RCDEkkwSj3usGXBWov3L&u2=MFQGOIUncXGDVHGp&width=2560" alt="Pomegranate Elegance" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Pomegranate Elegance</h3>
-                  <span class="menu-item-price">Rp 72.000</span>
-                </div>
-                <p class="menu-item-desc">Jus delima murni, air mawar, lemon, brown sugar syrup, garnish biji delima dan mint.</p>
-              </div>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://sspark.genspark.ai/cfimages?u1=sTlm1GJBtygn%2FJY9FHP3935fcZrrNvb13sAt6fDGi1jOngu%2FNi4cjXt99Zm3p7hxdXXMccsiwvrKin0vEqZ6B1F3eQfNKVME8Cm%2BqxfwqUkgF%2BhDOFT96FANR%2BibGQC%2FH2qDlle47LGT%2BcQD6jYwtRINwbywAQ%3D%3D&u2=ADtHdDsTNq8diZJb&width=2560" alt="Tropical Sunrise" loading="lazy" />
-              </div>
-              <div class="menu-card-body">
-                <div class="menu-card-header">
-                  <h3 class="menu-item-name">Tropical Sunrise</h3>
-                  <span class="menu-item-price">Rp 68.000</span>
-                </div>
-                <p class="menu-item-desc">Jus mangga, jeruk, grenadine homemade, es batu besar, garnish slice jeruk dan cherry.</p>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-        <div class="menu-footer-note">
-          <i class="fas fa-info-circle"></i>
-          <span>Harga belum termasuk pajak 10%. Menu dapat berubah sesuai ketersediaan bahan musiman.</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
-         D. GALERI
-    ═══════════════════════════════════════════ -->
-    <section id="gallery" class="gallery-section section-padding">
-      <div class="container">
-        <div class="section-header centered">
-          <p class="section-label">Galeri</p>
-          <h2 class="section-title">Suasana <em>Restoran</em></h2>
-          <p class="section-desc">Ruang makan yang dirancang untuk kenyamanan dan keindahan — baik untuk makan malam romantis maupun acara spesial bersama.</p>
-        </div>
-
+        
         <div class="gallery-grid" id="gallery-grid">
-
-          <figure class="gallery-item gallery-item--wide" data-index="0">
-            <img src="https://sspark.genspark.ai/cfimages?u1=tgR2vvSkVr18cWuKS4nlhgE5RPqL188zUNS2BuVaQznsdT5QEvfb74kkZjKS2tyBHrA%2FGDHOv4dfQj7UBoEvoRX1cFwzpfgSzqFFLwTu7wzDy60COZ47MfMAmH3FxtEEngZd0tvdaQGdNmgzljoSCcxwa%2FKhQo1qZtIfMD91TpK%2FcwtulxNHWtulQi7oSKIRfj3Nu094%2Fh9ZjW5GJg%3D%3D&u2=UHtSfpgMg8Lwq5PQ&width=2560" alt="Main dining room" loading="lazy" />
-            <figcaption>Ruang Makan Utama</figcaption>
-            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          <figure class="gallery-item reveal" data-index="0">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="Suasana fine dining restoran">
+            <figcaption class="gallery-item__caption">Suasana Makan</figcaption>
           </figure>
-
-          <figure class="gallery-item" data-index="1">
-            <img src="https://sspark.genspark.ai/cfimages?u1=PvbgcykB%2F0A06y6N8ECv2UbIuhqlP%2Bgq18QseeJ2rJU8EiqM%2FPqbgaWa3ho2l6HVVaUGE%2BcbMAUDZExMRlmaZWNukzhTGcUDC%2BEwTEkt0ivGN5oE29yoxgu3H9mBI9uPotRDQ7uayWRk3JkBnn4%3D&u2=Rj6ZxuPVXsXMaHUI&width=2560" alt="Elegant table setting" loading="lazy" />
-            <figcaption>Table Setting Premium</figcaption>
-            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          <figure class="gallery-item reveal" data-index="1">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Interior restoran elegan">
+            <figcaption class="gallery-item__caption">Interior</figcaption>
           </figure>
-
-          <figure class="gallery-item" data-index="2">
-            <img src="https://sspark.genspark.ai/cfimages?u1=NhkJgdnL1DWhMcKbvVfxR%2F4JM6HXWv6dDln2Ebc5UJKdkMx5qYwgMm1cS%2B3IxMSx73NZgwSpcTRwfV5vyUe4RpaM9VFbSuLp7A8%2Bb5TKhIfGy1hyFU17DivN8FzqW4z4XE5zk0iYXdgr6HSYz%2Fo%3D&u2=TK%2Bmbmr017Revby0&width=2560" alt="Private dining room" loading="lazy" />
-            <figcaption>Private Dining Room</figcaption>
-            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          <figure class="gallery-item reveal" data-index="2">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Steak premium plating">
+            <figcaption class="gallery-item__caption">Steak Premium</figcaption>
           </figure>
-
-          <figure class="gallery-item" data-index="3">
-            <img src="https://sspark.genspark.ai/cfimages?u1=8rBgu3cSm6YoFajGNpifE9IzrhHkjQ3BGxo33RAXAaQqmcNAQQeIt93nMpRu7y9SrtOiSIHdGK4evGq8dc9kXBnm1Z84WqIg%2F%2B17kpwXwEtbuAIr3CQHQ0leN6%2FLzvWsZQ8tUov3kHIE1yHdamg%3D&u2=Xu6YS4x3OtKcfKK5&width=2560" alt="Outdoor terrace" loading="lazy" />
-            <figcaption>Terrace Evening Setup</figcaption>
-            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          <figure class="gallery-item reveal" data-index="3">
+            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80" alt="Chef saat memasak">
+            <figcaption class="gallery-item__caption">Chef Beraksi</figcaption>
           </figure>
-
-          <figure class="gallery-item gallery-item--tall" data-index="4">
-            <img src="https://sspark.genspark.ai/cfimages?u1=5emmodRzmep%2BGvSz%2FxUcjSg7fV5ku%2BZ4uDyEqxd4MYL5i1oQ2WmBCgULQOVgPzEpJv9y%2BrgdUlcvoRhRXzOe5ob76cRGWXNwWc4bpAKWnRYWQsf8I9U%3D&u2=RTchq88wn47Q8ICx&width=2560" alt="Chef plating" loading="lazy" />
-            <figcaption>Proses Plating oleh Chef</figcaption>
-            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          <figure class="gallery-item reveal" data-index="4">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Area makan restoran">
+            <figcaption class="gallery-item__caption">Area Makan</figcaption>
           </figure>
-
-          <figure class="gallery-item" data-index="5">
-            <img src="https://sspark.genspark.ai/cfimages?u1=n8wWcKbf92MlGamNeoZ0dWEQhu2aH6O%2Fyp1VqI7jQFjF12duRCYbhHb%2F2NTqgF6E33uRk%2F6XnT4T0g8EyuJBN7cmrpGXsKCcLJRo95hm%2FcnI0mM50v34gn%2F5bsCmPlzbFELeDBQJK86x&u2=Sv3oc4EPoZhe2Tgj&width=2560" alt="Elegant table setting evening" loading="lazy" />
-            <figcaption>Suasana Malam Hari</figcaption>
-            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+          <figure class="gallery-item reveal" data-index="5">
+            <img src="https://images.unsplash.com/photo-1578474843222-6778077b9a8e?auto=format&fit=crop&w=800&q=80" alt="Suasana malam ramai">
+            <figcaption class="gallery-item__caption">Suasana Malam</figcaption>
           </figure>
-
+          <figure class="gallery-item reveal" data-index="6">
+            <img src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?auto=format&fit=crop&w=800&q=80" alt="Seafood platter close up">
+            <figcaption class="gallery-item__caption">Seafood Platter</figcaption>
+          </figure>
+          <figure class="gallery-item reveal" data-index="7">
+            <img src="https://images.unsplash.com/photo-1600891964599-f62ba0a0c0ab?auto=format&fit=crop&w=800&q=80" alt="Dessert plating">
+            <figcaption class="gallery-item__caption">Dessert</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeri foto">
-      <button class="lightbox-close" id="lightbox-close" aria-label="Tutup"><i class="fas fa-times"></i></button>
-      <button class="lightbox-prev" id="lightbox-prev" aria-label="Sebelumnya"><i class="fas fa-chevron-left"></i></button>
-      <button class="lightbox-next" id="lightbox-next" aria-label="Berikutnya"><i class="fas fa-chevron-right"></i></button>
-      <div class="lightbox-content">
-        <img src="" alt="" id="lightbox-img" />
-        <p class="lightbox-caption" id="lightbox-caption"></p>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════
-         PRIVATE DINING PROMO
-    ═══════════════════════════════════════════ -->
-    <section class="private-section">
-      <div class="private-bg">
-        <img src="https://sspark.genspark.ai/cfimages?u1=ueKzJQtKaSD0Xmo1t7ZxWemdpyPTRTJZkJzC6%2BR58qXHGwuY7eC9myJF30%2BC8QIvHfKusJmfu64hwXEhPJoTY4Uu0%2F25hLESUAItQuy5YkOXXvQUXB2A&u2=UjVVaPBASmnWQ11w&width=2560" alt="Private Dining Room" />
-        <div class="private-overlay"></div>
-      </div>
-      <div class="private-content container">
-        <p class="section-label light">Layanan Eksklusif</p>
-        <h2 class="private-title">Private Dining<br /><em>untuk Momen Spesial</em></h2>
-        <p class="private-desc">
-          Ruangan privat berkapasitas hingga 14 orang, cocok untuk anniversary, business dinner,
-          atau perayaan keluarga. Chef kami menyiapkan menu khusus sesuai permintaan Anda.
-        </p>
-        <a href="#reservation" class="btn-primary light">Tanya Ketersediaan</a>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
-         E. RESERVASI
-    ═══════════════════════════════════════════ -->
-    <section id="reservation" class="reservation-section section-padding">
+    <!-- Reservasi -->
+    <section class="section section--reservation" id="reservasi">
       <div class="container">
-        <div class="reservation-grid">
-          <div class="reservation-info">
-            <p class="section-label">Buat Reservasi</p>
-            <h2 class="section-title">Pesan Meja<br /><em>Anda</em></h2>
-            <p class="reservation-desc">
-              Isi form berikut dan Anda akan diarahkan ke WhatsApp untuk konfirmasi langsung
-              bersama tim kami. Reservasi biasanya dikonfirmasi dalam 30 menit.
-            </p>
-
-            <ul class="reservation-details">
-              <li>
-                <i class="fas fa-clock"></i>
-                <div>
-                  <strong>Jam Operasional</strong>
-                  <span>Senin–Jumat: 11.00–22.00<br />Sabtu–Minggu: 10.00–23.00</span>
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-users"></i>
-                <div>
-                  <strong>Kapasitas</strong>
-                  <span>Reguler: maks. 8 orang/meja<br />Private Dining: 8–14 orang</span>
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-calendar-check"></i>
-                <div>
-                  <strong>Kebijakan</strong>
-                  <span>Reservasi min. 2 jam sebelum kedatangan</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="reservation-form-wrap">
+        <div class="reservation__wrapper reveal">
+          <div class="reservation__content">
+            <span class="section__label">RESERVASI MEJA</span>
+            <h2 class="section__title">Reservasi Sekarang</h2>
+            <p class="section__subtitle">Isi data singkat berikut, lalu kami akan mengarahkan Anda ke WhatsApp untuk konfirmasi.</p>
+            
             <form class="reservation-form" id="reservation-form" novalidate>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="res-name">Nama Lengkap <span class="required">*</span></label>
-                  <input type="text" id="res-name" name="nama" placeholder="Budi Santoso" required />
-                  <span class="field-error" id="err-name"></span>
-                </div>
-                <div class="form-group">
-                  <label for="res-phone">No. HP <span class="required">*</span></label>
-                  <input type="tel" id="res-phone" name="no_hp" placeholder="08xxxxxxxxxx" required />
-                  <span class="field-error" id="err-phone"></span>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="res-date">Tanggal <span class="required">*</span></label>
-                  <input type="date" id="res-date" name="tanggal" required />
-                  <span class="field-error" id="err-date"></span>
-                </div>
-                <div class="form-group">
-                  <label for="res-time">Jam <span class="required">*</span></label>
-                  <select id="res-time" name="jam" required>
-                    <option value="">Pilih jam</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                  </select>
-                  <span class="field-error" id="err-time"></span>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="res-guests">Jumlah Orang <span class="required">*</span></label>
-                  <select id="res-guests" name="jumlah_orang" required>
-                    <option value="">Pilih jumlah</option>
-                    <option value="1 orang">1 orang</option>
-                    <option value="2 orang">2 orang</option>
-                    <option value="3 orang">3 orang</option>
-                    <option value="4 orang">4 orang</option>
-                    <option value="5 orang">5 orang</option>
-                    <option value="6 orang">6 orang</option>
-                    <option value="7 orang">7 orang</option>
-                    <option value="8 orang">8 orang</option>
-                    <option value="9–14 orang (Private)">9–14 orang (Private Dining)</option>
-                  </select>
-                  <span class="field-error" id="err-guests"></span>
-                </div>
-                <div class="form-group">
-                  <label for="res-type">Jenis Acara <span class="required">*</span></label>
-                  <select id="res-type" name="jenis" required>
-                    <option value="">Pilih jenis acara</option>
-                    <option value="Reguler">Reguler</option>
-                    <option value="Private Dining">Private Dining</option>
-                    <option value="Anniversary / Ulang Tahun">Anniversary / Ulang Tahun</option>
-                    <option value="Business Dinner">Business Dinner</option>
-                    <option value="Acara Khusus Lainnya">Acara Khusus Lainnya</option>
-                  </select>
-                  <span class="field-error" id="err-type"></span>
-                </div>
-              </div>
-
               <div class="form-group">
-                <label for="res-notes">Catatan (Opsional)</label>
-                <textarea id="res-notes" name="catatan" rows="3" placeholder="Contoh: alergi makanan, dekorasi khusus, preferensi tempat duduk…"></textarea>
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" id="nama" name="nama" class="form-input" placeholder="Nama lengkap Anda" required>
               </div>
-
-              <button type="submit" class="btn-primary btn-submit">
-                <i class="fab fa-whatsapp"></i>
-                Reservasi via WhatsApp
-              </button>
-
-              <p class="form-note">
-                <i class="fas fa-lock"></i>
-                Data Anda aman dan hanya digunakan untuk keperluan reservasi.
-              </p>
+              <div class="form-group">
+                <label for="jumlah" class="form-label">Jumlah Orang</label>
+                <input type="number" id="jumlah" name="jumlah" class="form-input" min="1" max="50" placeholder="Contoh: 4" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tanggal" class="form-label">Tanggal</label>
+                  <input type="date" id="tanggal" name="tanggal" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label for="jam" class="form-label">Jam</label>
+                  <input type="time" id="jam" name="jam" class="form-input" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="catatan" class="form-label">Catatan <span class="text-muted">(opsional)</span></label>
+                <textarea id="catatan" name="catatan" class="form-input" rows="3" placeholder="Permintaan khusus, alergi, atau acara tertentu"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--large">Reservasi via WhatsApp</button>
             </form>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
-         F. LOKASI & KONTAK
-    ═══════════════════════════════════════════ -->
-    <section id="contact" class="contact-section section-padding">
-      <div class="container">
-        <div class="section-header centered">
-          <p class="section-label">Lokasi & Kontak</p>
-          <h2 class="section-title">Temukan <em>Kami</em></h2>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1234567890!2d106.8155!3d-6.2608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e0b1234567%3A0x0!2sKemang%2C+Jakarta+Selatan!5e0!3m2!1sid!2sid!4v1234567890"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Lokasi Saraswati Dining di Google Maps"
-            ></iframe>
-          </div>
-
-          <div class="contact-info">
-            <div class="contact-info-card">
-              <div class="contact-info-item">
-                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div>
-                  <strong>Alamat</strong>
-                  <p>Jl. Kemang Raya No. 45<br />Kemang, Jakarta Selatan<br />DKI Jakarta 12730</p>
-                </div>
-              </div>
-
-              <div class="contact-info-item">
-                <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                <div>
-                  <strong>Jam Operasional</strong>
-                  <p>
-                    Senin – Jumat: 11.00 – 22.00<br />
-                    Sabtu – Minggu: 10.00 – 23.00
-                  </p>
-                </div>
-              </div>
-
-              <div class="contact-info-item">
-                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                <div>
-                  <strong>WhatsApp</strong>
-                  <p><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">+62 812-3456-7890</a></p>
-                </div>
-              </div>
-
-              <div class="contact-info-item">
-                <div class="contact-icon"><i class="fab fa-instagram"></i></div>
-                <div>
-                  <strong>Instagram</strong>
-                  <p><a href="https://instagram.com/saraswatidining" target="_blank" rel="noopener">@saraswatidining</a></p>
-                </div>
-              </div>
-
-              <div class="contact-social-row">
-                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn-social btn-wa" aria-label="Hubungi via WhatsApp">
-                  <i class="fab fa-whatsapp"></i> Chat WhatsApp
-                </a>
-                <a href="https://instagram.com/saraswatidining" target="_blank" rel="noopener" class="btn-social btn-ig" aria-label="Ikuti di Instagram">
-                  <i class="fab fa-instagram"></i> Instagram
-                </a>
-              </div>
+          
+          <div class="reservation__info">
+            <div class="info-card">
+              <i class="fas fa-phone-alt info-card__icon"></i>
+              <h3 class="info-card__title">Telepon / WhatsApp</h3>
+              <p class="info-card__text">+62 812-3456-7890</p>
+            </div>
+            <div class="info-card">
+              <i class="fas fa-clock info-card__icon"></i>
+              <h3 class="info-card__title">Jam Operasional</h3>
+              <p class="info-card__text">Senin – Kamis: 10.00 – 22.00</p>
+              <p class="info-card__text">Jumat – Minggu: 10.00 – 23.00</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-  </main>
-
-  <!-- ═══════════════════════════════════════════
-       G. FOOTER
-  ═══════════════════════════════════════════ -->
-  <footer class="site-footer">
-    <div class="footer-container container">
-      <div class="footer-brand">
-        <a href="#hero" class="nav-logo footer-logo">
-          <span class="logo-mark">✦</span>
-          <span class="logo-text">Saraswati <em>Dining</em></span>
-        </a>
-        <p class="footer-tagline">
-          Fine dining yang menghormati<br />bahan dan tradisi.
-        </p>
+    <!-- Lokasi -->
+    <section class="section" id="lokasi">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">KUNJUNGI KAMI</span>
+          <h2 class="section__title">Lokasi</h2>
+          <p class="section__subtitle">Berlokasi strategis dengan suasana yang nyaman untuk bersantap.</p>
+        </div>
+        
+        <div class="location__wrapper reveal">
+          <div class="location__map">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.819361350714!3d-6.194741395493374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b0452f7f14d79c6!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1680000000000!5m2!1sid!2sid" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Peta lokasi restoran">
+            </iframe>
+          </div>
+          <div class="location__details">
+            <div class="info-card">
+              <i class="fas fa-map-marker-alt info-card__icon"></i>
+              <h3 class="info-card__title">Alamat</h3>
+              <p class="info-card__text">Jl. Kuliner Premium No. 88</p>
+              <p class="info-card__text">Kota [Nama Kota], [Provinsi], 12345</p>
+            </div>
+            <div class="info-card">
+              <i class="fas fa-clock info-card__icon"></i>
+              <h3 class="info-card__title">Jam Operasional</h3>
+              <ul class="hours-list">
+                <li><span>Senin</span> <span>10.00 – 22.00</span></li>
+                <li><span>Selasa</span> <span>10.00 – 22.00</span></li>
+                <li><span>Rabu</span> <span>10.00 – 22.00</span></li>
+                <li><span>Kamis</span> <span>10.00 – 22.00</span></li>
+                <li><span>Jumat</span> <span>10.00 – 23.00</span></li>
+                <li><span>Sabtu</span> <span>10.00 – 23.00</span></li>
+                <li><span>Minggu</span> <span>10.00 – 23.00</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="footer-links-col">
-        <h4>Navigasi</h4>
-        <ul>
-          <li><a href="#about">Tentang Kami</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#gallery">Galeri</a></li>
-          <li><a href="#reservation">Reservasi</a></li>
-          <li><a href="#contact">Kontak</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-links-col">
-        <h4>Layanan</h4>
-        <ul>
-          <li><a href="#reservation">Reservasi Meja</a></li>
-          <li><a href="#reservation">Private Dining</a></li>
-          <li><a href="#reservation">Business Dinner</a></li>
-          <li><a href="#reservation">Acara Spesial</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-contact-col">
-        <h4>Hubungi Kami</h4>
-        <p>Jl. Kemang Raya No. 45<br />Jakarta Selatan 12730</p>
-        <p>
-          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">
-            +62 812-3456-7890
+    <!-- Kontak -->
+    <section class="section section--contact" id="kontak">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">HUBUNGI KAMI</span>
+          <h2 class="section__title">Kontak</h2>
+          <p class="section__subtitle">Reservasi, pertanyaan, atau kerja sama dapat dihubungi melalui kanal berikut.</p>
+        </div>
+        
+        <div class="contact-grid reveal">
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="contact-card" aria-label="Chat WhatsApp">
+            <i class="fab fa-whatsapp contact-card__icon"></i>
+            <h3 class="contact-card__title">WhatsApp</h3>
+            <p class="contact-card__text">+62 812-3456-7890</p>
           </a>
-        </p>
-        <div class="footer-social">
-          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
+          <a href="https://instagram.com/namarestoran" target="_blank" rel="noopener" class="contact-card" aria-label="Instagram">
+            <i class="fab fa-instagram contact-card__icon"></i>
+            <h3 class="contact-card__title">Instagram</h3>
+            <p class="contact-card__text">@namarestoran</p>
           </a>
-          <a href="https://instagram.com/saraswatidining" target="_blank" rel="noopener" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
+          <a href="https://facebook.com/namarestoran" target="_blank" rel="noopener" class="contact-card" aria-label="Facebook">
+            <i class="fab fa-facebook-f contact-card__icon"></i>
+            <h3 class="contact-card__title">Facebook</h3>
+            <p class="contact-card__text">Nama Restoran</p>
+          </a>
+          <a href="https://tiktok.com/@namarestoran" target="_blank" rel="noopener" class="contact-card" aria-label="TikTok">
+            <i class="fab fa-tiktok contact-card__icon"></i>
+            <h3 class="contact-card__title">TikTok</h3>
+            <p class="contact-card__text">@namarestoran</p>
+          </a>
+          <a href="mailto:hello@namarestoran.com" class="contact-card" aria-label="Email">
+            <i class="fas fa-envelope contact-card__icon"></i>
+            <h3 class="contact-card__title">Email</h3>
+            <p class="contact-card__text">hello@namarestoran.com</p>
           </a>
         </div>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2025 Saraswati Dining. Semua hak dilindungi.</p>
-        <p class="footer-bottom-right">Dibuat dengan <i class="fas fa-heart"></i> di Jakarta</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="logo logo--footer">
+            <span class="logo__icon"><i class="fas fa-utensils"></i></span>
+            <span class="logo__text">[Nama Restoran]</span>
+          </a>
+          <p class="footer__tagline">Pengalaman bersantap premium dengan sentuhan cita rasa lokal yang istimewa.</p>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__title">Link Cepat</h4>
+          <ul>
+            <li><a href="#menu-unggulan">Menu</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#reservasi">Reservasi</a></li>
+            <li><a href="#lokasi">Lokasi</a></li>
+          </ul>
+        </div>
+        <div class="footer__hours">
+          <h4 class="footer__title">Jam Buka</h4>
+          <p>Senin – Kamis: 10.00 – 22.00</p>
+          <p>Jumat – Minggu: 10.00 – 23.00</p>
+        </div>
+        <div class="footer__contact">
+          <h4 class="footer__title">Kontak</h4>
+          <p><a href="https://wa.me/6281234567890">+62 812-3456-7890</a></p>
+          <p><a href="mailto:hello@namarestoran.com">hello@namarestoran.com</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 [Nama Restoran]. Seluruh hak cipta dilindungi.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Back to top -->
-  <button class="back-to-top" id="back-to-top" aria-label="Kembali ke atas">
-    <i class="fas fa-chevron-up"></i>
-  </button>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="fab-wa" aria-label="Chat WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-  <!-- Main JS -->
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Tutup lightbox">
+      <i class="fas fa-times"></i>
+    </button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Foto sebelumnya">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Foto selanjutnya">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="lightbox__content">
+      <img src="" alt="" class="lightbox__image" id="lightbox-image">
+      <p class="lightbox__caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
   <script src="js/main.js"></script>
 </body>
 </html>

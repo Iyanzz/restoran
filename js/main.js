@@ -1,432 +1,310 @@
+/* =========================================================
+   [Nama Restoran] — Main JavaScript
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initHeader();
+  initMobileNav();
+  initMenuTabs();
+  initScrollReveal();
+  initLightbox();
+  initReservationForm();
+  initSmoothScroll();
+  initActiveNavLinks();
+});
+
 /**
- * Saraswati Dining — Main JavaScript
- * Features:
- *  1. Sticky header with scroll state
- *  2. Mobile menu toggle
- *  3. Menu tabs
- *  4. Gallery lightbox with keyboard & swipe support
- *  5. Reservation form → WhatsApp redirect
- *  6. Smooth scroll for nav links
- *  7. Scroll reveal animation
- *  8. Back-to-top button
- *  9. Active nav link highlighting
+ * Header: transparent to solid + blur on scroll
  */
-
-'use strict';
-
-/* ────────────────────────────────────────────
-   CONSTANTS
-──────────────────────────────────────────── */
-const WA_NUMBER = '6281234567890'; // Format internasional tanpa +
-
-/* ────────────────────────────────────────────
-   1. STICKY HEADER
-──────────────────────────────────────────── */
-(function initStickyHeader() {
-  const header = document.getElementById('site-header');
+function initHeader() {
+  const header = document.getElementById('header');
   if (!header) return;
-
-  const update = () => {
-    header.classList.toggle('scrolled', window.scrollY > 60);
+  
+  const toggleHeader = () => {
+    if (window.scrollY > 30) {
+      header.classList.add('header--scrolled');
+    } else {
+      header.classList.remove('header--scrolled');
+    }
   };
+  
+  window.addEventListener('scroll', toggleHeader, { passive: true });
+  toggleHeader();
+}
 
-  window.addEventListener('scroll', update, { passive: true });
-  update();
-})();
-
-/* ────────────────────────────────────────────
-   2. MOBILE MENU
-──────────────────────────────────────────── */
-(function initMobileMenu() {
-  const hamburger  = document.getElementById('nav-hamburger');
-  const menu       = document.getElementById('mobile-menu');
-  const closeBtn   = document.getElementById('mobile-menu-close');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-cta');
-
-  if (!hamburger || !menu) return;
-
-  const open  = () => { menu.classList.add('open'); document.body.style.overflow = 'hidden'; };
-  const close = () => { menu.classList.remove('open'); document.body.style.overflow = ''; };
-
-  hamburger.addEventListener('click', open);
-  closeBtn.addEventListener('click', close);
-  mobileLinks.forEach(link => link.addEventListener('click', close));
-
-  // Close on backdrop click
-  menu.addEventListener('click', e => {
-    if (e.target === menu) close();
+/**
+ * Mobile navigation toggle
+ */
+function initMobileNav() {
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (!toggle || !menu) return;
+  
+  const links = menu.querySelectorAll('a');
+  
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
   });
-})();
+  
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target) && menu.classList.contains('active')) {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+}
 
-/* ────────────────────────────────────────────
-   3. MENU TABS
-──────────────────────────────────────────── */
-(function initMenuTabs() {
-  const tabs   = document.querySelectorAll('.menu-tab');
+/**
+ * Menu tabs: switch between categories
+ */
+function initMenuTabs() {
+  const tabs = document.querySelectorAll('.menu-tab');
   const panels = document.querySelectorAll('.menu-panel');
-
-  if (!tabs.length) return;
-
+  if (!tabs.length || !panels.length) return;
+  
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      const target = tab.dataset.tab;
-
-      // Update tabs
-      tabs.forEach(t => {
-        t.classList.toggle('active', t === tab);
-        t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
-      });
-
-      // Update panels with fade
+      const target = tab.getAttribute('data-tab');
+      
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      
       panels.forEach(panel => {
-        if (panel.id === `panel-${target}`) {
-          panel.style.display = 'block';
-          panel.style.opacity = '0';
-          panel.style.transform = 'translateY(12px)';
+        panel.classList.remove('active');
+        if (panel.id === target) {
           panel.classList.add('active');
-
-          // Trigger reflow then animate
-          requestAnimationFrame(() => {
-            panel.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-            panel.style.opacity = '1';
-            panel.style.transform = 'translateY(0)';
-          });
-        } else {
-          panel.classList.remove('active');
-          panel.style.display = 'none';
-          panel.style.opacity = '';
-          panel.style.transform = '';
-          panel.style.transition = '';
         }
       });
     });
   });
-})();
+}
 
-/* ────────────────────────────────────────────
-   4. GALLERY LIGHTBOX
-──────────────────────────────────────────── */
-(function initLightbox() {
-  const gallery   = document.getElementById('gallery-grid');
-  const lightbox  = document.getElementById('lightbox');
-  const imgEl     = document.getElementById('lightbox-img');
-  const captionEl = document.getElementById('lightbox-caption');
-  const closeBtn  = document.getElementById('lightbox-close');
-  const prevBtn   = document.getElementById('lightbox-prev');
-  const nextBtn   = document.getElementById('lightbox-next');
-
-  if (!gallery || !lightbox) return;
-
-  const items     = Array.from(gallery.querySelectorAll('.gallery-item'));
-  let currentIdx  = 0;
-  let touchStartX = 0;
-
-  const getItemData = idx => {
-    const item = items[idx];
-    if (!item) return null;
-    const img = item.querySelector('img');
-    const cap = item.querySelector('figcaption');
-    return {
-      src: img?.src || '',
-      alt: img?.alt || '',
-      caption: cap?.textContent || ''
-    };
-  };
-
-  const show = idx => {
-    const data = getItemData(idx);
-    if (!data) return;
-    currentIdx = idx;
-    imgEl.src = data.src;
-    imgEl.alt = data.alt;
-    captionEl.textContent = data.caption;
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-
-    prevBtn.style.display = currentIdx === 0 ? 'none' : '';
-    nextBtn.style.display = currentIdx === items.length - 1 ? 'none' : '';
-  };
-
-  const hide = () => {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-    imgEl.src = '';
-  };
-
-  const prev = () => { if (currentIdx > 0) show(currentIdx - 1); };
-  const next = () => { if (currentIdx < items.length - 1) show(currentIdx + 1); };
-
-  // Attach click to gallery items
-  items.forEach((item, idx) => {
-    item.addEventListener('click', () => show(idx));
-    item.setAttribute('tabindex', '0');
-    item.setAttribute('role', 'button');
-    item.setAttribute('aria-label', `Lihat foto ${idx + 1}`);
-    item.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(idx); }
-    });
-  });
-
-  closeBtn.addEventListener('click', hide);
-  prevBtn.addEventListener('click', prev);
-  nextBtn.addEventListener('click', next);
-
-  // Backdrop close
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) hide();
-  });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', e => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape')     hide();
-    if (e.key === 'ArrowLeft')  prev();
-    if (e.key === 'ArrowRight') next();
-  });
-
-  // Touch/swipe support
-  lightbox.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  lightbox.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].screenX;
-    if (Math.abs(diff) > 50) {
-      diff > 0 ? next() : prev();
-    }
-  });
-})();
-
-/* ────────────────────────────────────────────
-   5. RESERVATION FORM → WHATSAPP
-──────────────────────────────────────────── */
-(function initReservationForm() {
-  const form = document.getElementById('reservation-form');
-  if (!form) return;
-
-  // Set minimum date to today
-  const dateInput = document.getElementById('res-date');
-  if (dateInput) {
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.min = today;
+/**
+ * Scroll reveal: fade + translate elements when entering viewport
+ * Respects prefers-reduced-motion
+ */
+function initScrollReveal() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    return;
   }
-
-  // Validation helpers
-  const fields = {
-    name   : { el: document.getElementById('res-name'),   err: document.getElementById('err-name'),   msg: 'Nama lengkap wajib diisi.' },
-    phone  : { el: document.getElementById('res-phone'),  err: document.getElementById('err-phone'),  msg: 'Nomor HP wajib diisi.' },
-    date   : { el: document.getElementById('res-date'),   err: document.getElementById('err-date'),   msg: 'Pilih tanggal reservasi.' },
-    time   : { el: document.getElementById('res-time'),   err: document.getElementById('err-time'),   msg: 'Pilih jam reservasi.' },
-    guests : { el: document.getElementById('res-guests'), err: document.getElementById('err-guests'), msg: 'Pilih jumlah orang.' },
-    type   : { el: document.getElementById('res-type'),   err: document.getElementById('err-type'),   msg: 'Pilih jenis acara.' },
-  };
-
-  const showError = (field, msg) => {
-    field.err.textContent = msg;
-    field.err.classList.add('show');
-    field.el.style.borderColor = '#C62828';
-  };
-
-  const clearError = field => {
-    field.err.classList.remove('show');
-    field.el.style.borderColor = '';
-  };
-
-  // Live validation
-  Object.values(fields).forEach(f => {
-    f.el?.addEventListener('input', () => clearError(f));
-    f.el?.addEventListener('change', () => clearError(f));
-  });
-
-  const validate = () => {
-    let valid = true;
-    Object.values(fields).forEach(f => {
-      const val = f.el?.value?.trim();
-      if (!val) {
-        showError(f, f.msg);
-        valid = false;
-      } else {
-        clearError(f);
-      }
-    });
-
-    // Phone number basic check
-    const phoneVal = fields.phone.el?.value?.trim();
-    if (phoneVal && !/^[0-9+\-\s()]{7,15}$/.test(phoneVal)) {
-      showError(fields.phone, 'Masukkan nomor HP yang valid.');
-      valid = false;
-    }
-
-    return valid;
-  };
-
-  const formatDate = raw => {
-    if (!raw) return '';
-    const d = new Date(raw + 'T00:00:00');
-    return d.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-  };
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    if (!validate()) {
-      // Scroll to first error
-      const firstErr = form.querySelector('.field-error.show');
-      if (firstErr) {
-        firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      return;
-    }
-
-    const nama     = document.getElementById('res-name').value.trim();
-    const no_hp    = document.getElementById('res-phone').value.trim();
-    const tanggal  = formatDate(document.getElementById('res-date').value);
-    const jam      = document.getElementById('res-time').value;
-    const orang    = document.getElementById('res-guests').value;
-    const jenis    = document.getElementById('res-type').value;
-    const catatan  = document.getElementById('res-notes').value.trim() || '-';
-
-    const message =
-`Halo Saraswati Dining, saya ingin reservasi:
-
-Nama: ${nama}
-No. HP: ${no_hp}
-Tanggal: ${tanggal}
-Jam: ${jam}
-Jumlah orang: ${orang}
-Jenis: ${jenis}
-Catatan: ${catatan}
-
-Mohon konfirmasi ketersediaan meja. Terima kasih.`;
-
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
-
-    // Button loading state
-    const btn = form.querySelector('.btn-submit');
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menghubungkan…';
-
-    setTimeout(() => {
-      window.open(url, '_blank', 'noopener,noreferrer');
-      btn.disabled = false;
-      btn.innerHTML = '<i class="fab fa-whatsapp"></i> Reservasi via WhatsApp';
-    }, 600);
-  });
-})();
-
-/* ────────────────────────────────────────────
-   6. SMOOTH SCROLL FOR NAV LINKS
-──────────────────────────────────────────── */
-(function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const target = document.querySelector(link.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-
-      const headerH = document.getElementById('site-header')?.offsetHeight || 70;
-      const top = target.getBoundingClientRect().top + window.scrollY - headerH;
-
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  });
-})();
-
-/* ────────────────────────────────────────────
-   7. SCROLL REVEAL
-──────────────────────────────────────────── */
-(function initReveal() {
-  // Add reveal class to sections/elements
-  const targets = [
-    '.about-images',
-    '.about-content',
-    '.menu-tabs',
-    '.menu-card',
-    '.gallery-item',
-    '.reservation-info',
-    '.reservation-form-wrap',
-    '.contact-map',
-    '.contact-info-card',
-    '.private-content',
-    '.section-header',
-    '.highlight-item',
-  ];
-
-  targets.forEach(selector => {
-    document.querySelectorAll(selector).forEach((el, i) => {
-      el.classList.add('reveal');
-      if (i > 0 && i <= 3) el.classList.add(`reveal-delay-${i}`);
-    });
-  });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+  
+  const revealElements = document.querySelectorAll('.reveal');
+  if (!revealElements.length) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 80);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-})();
-
-/* ────────────────────────────────────────────
-   8. BACK TO TOP
-──────────────────────────────────────────── */
-(function initBackToTop() {
-  const btn = document.getElementById('back-to-top');
-  if (!btn) return;
-
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('visible', window.scrollY > 500);
-  }, { passive: true });
-
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
   });
-})();
+  
+  revealElements.forEach(el => observer.observe(el));
+}
 
-/* ────────────────────────────────────────────
-   9. ACTIVE NAV LINK (Intersection Observer)
-──────────────────────────────────────────── */
-(function initActiveNav() {
-  const sections  = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.nav-link');
+/**
+ * Lightbox: zoom gallery images with navigation
+ */
+function initLightbox() {
+  const items = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+  
+  if (!lightbox || !lightboxImg || !items.length) return;
+  
+  let currentIndex = 0;
+  const galleryData = Array.from(items).map(item => {
+    const img = item.querySelector('img');
+    const caption = item.querySelector('.gallery-item__caption');
+    return {
+      src: img ? img.src : '',
+      alt: img ? img.alt : '',
+      caption: caption ? caption.textContent : ''
+    };
+  });
+  
+  const openLightbox = (index) => {
+    currentIndex = index;
+    updateLightbox();
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  
+  const closeLightbox = () => {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  
+  const updateLightbox = () => {
+    const data = galleryData[currentIndex];
+    lightboxImg.src = data.src;
+    lightboxImg.alt = data.alt;
+    lightboxCaption.textContent = data.caption;
+  };
+  
+  const showNext = () => {
+    currentIndex = (currentIndex + 1) % galleryData.length;
+    updateLightbox();
+  };
+  
+  const showPrev = () => {
+    currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+    updateLightbox();
+  };
+  
+  items.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(index);
+      }
+    });
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', 'Buka gambar di lightbox');
+  });
+  
+  closeBtn.addEventListener('click', closeLightbox);
+  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+  
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    
+    switch(e.key) {
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowRight':
+        showNext();
+        break;
+      case 'ArrowLeft':
+        showPrev();
+        break;
+    }
+  });
+}
 
+/**
+ * Reservation form: validate and open WhatsApp with pre-filled message
+ */
+function initReservationForm() {
+  const form = document.getElementById('reservation-form');
+  if (!form) return;
+  
+  const namaInput = document.getElementById('nama');
+  const jumlahInput = document.getElementById('jumlah');
+  const tanggalInput = document.getElementById('tanggal');
+  const jamInput = document.getElementById('jam');
+  const catatanInput = document.getElementById('catatan');
+  
+  const restaurantName = '[Nama Restoran]';
+  const phoneNumber = '6281234567890'; // Ganti dengan nomor WhatsApp restoran (format 62)
+  
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    
+    const nama = namaInput.value.trim();
+    const jumlah = jumlahInput.value.trim();
+    const tanggal = tanggalInput.value;
+    const jam = jamInput.value;
+    const catatan = catatanInput.value.trim() || '-';
+    
+    const message = `Halo ${restaurantName}, saya ingin reservasi meja.\nNama: ${nama}\nJumlah Orang: ${jumlah}\nTanggal: ${tanggal}\nJam: ${jam}\nCatatan: ${catatan}`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(waUrl, '_blank');
+  });
+}
+
+/**
+ * Smooth scroll for anchor links
+ */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      
+      const target = document.querySelector(href);
+      if (!target) return;
+      
+      e.preventDefault();
+      const headerHeight = document.getElementById('header').offsetHeight || 80;
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+      });
+    });
+  });
+}
+
+/**
+ * Active nav links based on scroll position
+ */
+function initActiveNavLinks() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav__link');
   if (!sections.length || !navLinks.length) return;
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  
+  const setActiveLink = () => {
+    const scrollPos = window.scrollY + 150;
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
         navLinks.forEach(link => {
-          link.classList.toggle(
-            'active',
-            link.getAttribute('href') === `#${entry.target.id}`
-          );
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
         });
       }
     });
-  }, { rootMargin: '-40% 0px -55% 0px' });
-
-  sections.forEach(s => observer.observe(s));
-})();
-
-/* ────────────────────────────────────────────
-   10. LAZY LOAD POLYFILL (for older browsers)
-──────────────────────────────────────────── */
-(function initLazyLoad() {
-  if ('loading' in HTMLImageElement.prototype) return; // Native support
-
-  const images = document.querySelectorAll('img[loading="lazy"]');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src || img.src;
-        observer.unobserve(img);
-      }
-    });
-  });
-  images.forEach(img => observer.observe(img));
-})();
+  };
+  
+  window.addEventListener('scroll', setActiveLink, { passive: true });
+  setActiveLink();
+}
